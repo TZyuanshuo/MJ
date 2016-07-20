@@ -1,4 +1,4 @@
-cc.Class({
+var Game = cc.Class({
     extends: cc.Component,
 
     properties: {
@@ -7,11 +7,11 @@ cc.Class({
 
     // use this for initialization
     onLoad: function () {
-
+        Game.instance = this;
+        this.audioMng =  this.audioMng.getComponent('AudioMng');
+        
+        this.audioMng.playMusic();
     },
 
-    // called every frame, uncomment this function to activate update callback
-    // update: function (dt) {
-
-    // },
+    
 });

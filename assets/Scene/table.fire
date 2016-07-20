@@ -2198,7 +2198,19 @@
     "node": {
       "__id__": 52
     },
-    "_enabled": true
+    "_enabled": true,
+    "winAudio": {
+      "__uuid__": "d5b54266-d34c-4f73-80ed-a2e2399eef15"
+    },
+    "loseAudio": {
+      "__uuid__": "3e882d52-0559-46e9-b50b-d37072fe7684"
+    },
+    "buttonAudio": {
+      "__uuid__": "c8d68ad6-efdb-4495-b747-3259fde62610"
+    },
+    "backgroundAudio": {
+      "__uuid__": "df83089f-b721-44aa-bdef-fd0473ceb83e"
+    }
   },
   {
     "__type__": "0a2eePU+qdGe7xVeBH776Nw",

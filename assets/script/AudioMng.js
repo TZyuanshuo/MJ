@@ -2,24 +2,39 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        // foo: {
-        //    default: null,
-        //    url: cc.Texture2D,  // optional, default is typeof default
-        //    serializable: true, // optional, default is true
-        //    visible: true,      // optional, default is true
-        //    displayName: 'Foo', // optional
-        //    readonly: false,    // optional, default is false
-        // },
-        // ...
+        winAudio:{
+          default:null,
+          url: cc.AudioClip
+        },
+        loseAudio:{
+            default: null,
+            url: cc.AudioClip
+        },
+        buttonAudio: {
+            default:null,
+            url: cc.AudioClip
+        },
+        backgroundAudio:{
+            default: null,
+            url: cc.AudioClip
+        },
+    },
+    
+    _playSFX: function(clip){
+        cc.audioEngine.playMusic(clip, false);
     },
 
-    // use this for initialization
-    onLoad: function () {
-
+    playMusic:function(){
+      cc.audioEngine.playMusic(this.backgroundAudio, true); 
     },
-
-    // called every frame, uncomment this function to activate update callback
-    // update: function (dt) {
-
-    // },
+    playButton:function(){
+      this._playSFX(this.buttonAudio);  
+    },
+    playWin:function(){
+        this._playSFX(this.winAudio);
+    },
+    playLost:function(){
+        this._playSFX(this.loseAudio);
+    },
+    
 });
