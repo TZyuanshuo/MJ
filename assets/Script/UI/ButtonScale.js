@@ -19,7 +19,19 @@ cc.Class({
         self.scaleUpAction = cc.scaleTo(self.transDuration,self.initScale);
          function onTouchDown(event){
              this.stopAllActions();
+             if(audioMng) audioMng.playButton();
+             this.runAction(self.scaleDownAction);
          }
+         function onTouchUp(event){
+             this.stopAllActions();
+             this.runAction(self.scaleUpAction);
+         }
+         
+         // 注册事件
+         this.node.on(cc.Node.EventType.TOUCH_START,onTouchDown,this.node);
+         this.node.on(cc.Node.EventType.TOUCH_END,onTouchUp,this.node);
+         this.node.on(cc.Node.EventType.TOUCH_CANCEL,onTouchUp,this.node);
+         
     },
 
     
