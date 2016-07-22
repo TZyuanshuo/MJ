@@ -1,4 +1,4 @@
-var Suit = cc.Enum({
+/*var Suit = cc.Enum({
     Tong: 1, // 筒
     Tiao: 2, // 条
     Wan: 3, // 万
@@ -6,28 +6,44 @@ var Suit = cc.Enum({
     Hong:5, // 红中
     Fa: 6, // 发财
     Bai:7, // 白板
-});
-var tmp=["t1","t2","t3","t4","t5","t6","t7","t8","t9","s1","s2","s3",
-"s4","s5","s6","s7","s8","s9","w1","w2","w3","w4","w5","w6","w7","w8","w9",
-"t1","t2","t3","t4","t5","t6","t7","t8","t9","s1","s2","s3","s4","s5","s6","s7","s8","s9",
-"w1","w2","w3","w4","w5","w6","w7","w8","w9","t1","t2","t3","t4","t5","t6","t7","t8","t9",
-"s1","s2","s3","s4","s5","s6","s7","s8","s9","w1","w2","w3","w4","w5","w6","w7","w8","w9",
-"t1","t2","t3","t4","t5","t6","t7","t8","t9","s1","s2","s3","s4","s5","s6","s7","s8","s9",
-"w1","w2","w3","w4","w5","w6","w7","w8","w9"]; // 图片数组 
+});*/
+//t:筒,s:条,w:万
+var tmp = 't1,t2,t3,t4,t5,t6,t7,t8,t9,s1,s2,s3,s4,s5,s6,s7,s8,s9,w1,w2,w3,w4,w5,w6,w7,w8,w9,ef,wf,sf,nf,z,f,b'.split(',');
 
- function Card (point,suit){
+ function Card (point){
      Object.defineProperties(this,{
-         suit:{
-           value:suit,
+        point:{
+           value:point,
            writable: false
          },
          
-         suitName:{
+         id:{
+           value: point - 1,
+           writable: false
+         },
+         
+         cardName:{
              get:function(){
-                 return Suit[this.suit];
+                 return tmp[this.point];
              }
          },
          
      });
  }
 
+var cards = new Array(34);
+
+Card.formId = function(id){
+    return cards[id];
+};
+
+(function craetCards(){
+    for(var p = 1; p <=34; p++ ){
+        var card = new Card(p);
+        cards[card.id] = card;
+    }
+})();
+
+module.exports = {
+    Card: Card,
+};

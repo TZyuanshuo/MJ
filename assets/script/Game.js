@@ -1,3 +1,5 @@
+
+
 var Game = cc.Class({
     extends: cc.Component,
 
